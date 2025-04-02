@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<psalm
+        errorLevel="1"
+        resolveFromConfigFile="true"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="https://getpsalm.org/schema/config"
+        xsi:schemaLocation="https://getpsalm.org/schema/config tools/psalm/vendor/vimeo/psalm/config.xsd"
+        findUnusedBaselineEntry="true"
+        findUnusedCode="false"
+        cacheDirectory="var/psalm"
+>
+    <projectFiles>
+        <directory name="src"/>
+        <directory name="tests"/>
+        <ignoreFiles>
+            <directory name="var"/>
+            <directory name="vendor"/>
+            <directory name="tools"/>
+        </ignoreFiles>
+    </projectFiles>
+
+    <forbiddenFunctions>
+        <function name="dd"/>
+        <function name="die"/>
+        <function name="dump"/>
+        <function name="echo"/>
+        <function name="empty"/>
+        <function name="eval"/>
+        <function name="exit"/>
+        <function name="print"/>
+        <function name="print_r"/>
+        <function name="var_export"/>
+    </forbiddenFunctions>
+
+    <issueHandlers>
+        <!-- Downgraded to info, because Hydrator working with not specified (mixed) values -->
+        <MixedAssignment errorLevel="info"/>
+    </issueHandlers>
+
+    <plugins>
+        <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
+        <pluginClass class="Typhoon\CheckVisibilityPsalmPlugin\CheckVisibilityPlugin"/>
+    </plugins>
+</psalm>

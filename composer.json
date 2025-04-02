@@ -1,0 +1,46 @@
+{
+    "name": "kenny1911/doctrine-views-migrations",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "config": {
+        "sort-packages": true
+    },
+    "authors": [
+        {
+            "name": "Kenny1911",
+            "email": "o-muzyka@mail.ru"
+        }
+    ],
+    "require": {
+        "php": "^8.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^12.0"
+    },
+    "scripts": {
+        "psalm": "./tools/psalm/vendor/bin/psalm",
+        "phpunit": "phpunit",
+        "cs-fix": "PHP_CS_FIXER_IGNORE_ENV=1 ./tools/php-cs-fixer/vendor/bin/php-cs-fixer fix",
+        "cs-check": "PHP_CS_FIXER_IGNORE_ENV=1 ./tools/php-cs-fixer/vendor/bin/php-cs-fixer check",
+        "composer-require-checker": "./tools/composer-require-checker/vendor/bin/composer-require-checker check",
+        "composer-unused": "./tools/composer-unused/vendor/bin/composer-unused",
+        "checks": [
+            "@cs-check",
+            "@phpunit",
+            "@psalm --no-cache",
+            "@composer-require-checker",
+            "@composer-unused"
+        ]
+    },
+    "autoload": {
+        "psr-4": {
+            "Kenny1911\\DoctrineViewsMigrations\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Kenny1911\\DoctrineViewsMigrations\\Tests\\": "tests/"
+        }
+    }
+}

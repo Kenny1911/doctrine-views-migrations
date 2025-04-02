@@ -1,0 +1,7 @@
+{
+    "require": {
+        "friendsofphp/php-cs-fixer": "^3.72",
+        "phpyh/coding-standard": "^2.6",
+        "kenny1911/class-visibility-fixer": "^0.1.0"
+    }
+}

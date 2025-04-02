@@ -1,0 +1,7 @@
+{
+    "require": {
+        "vimeo/psalm": "^6.9",
+        "typhoon/check-visibility-psalm-plugin": "^0.1.1",
+        "psalm/plugin-phpunit": "^0.19.3"
+    }
+}
