@@ -29,6 +29,13 @@ final class ConnectionViewsProvider implements ViewsProvider
 
         $views = $schemaManager->listViews();
 
+        // Filter system schema namespaces
+        $views = array_filter($views, function (View $view) use ($schemaManager): bool {
+            $namespace = $view->getNamespaceName();
+
+            return null === $namespace || in_array($namespace, $schemaManager->listSchemaNames());
+        });
+
         return array_map(
             static function (View $view) use ($platform): View {
                 $removeFromSql = 'CREATE VIEW ' . $view->getQuotedName($platform) . ' AS ';
